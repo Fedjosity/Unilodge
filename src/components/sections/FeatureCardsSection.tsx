@@ -140,7 +140,7 @@ function Card3D({ feature }: { feature: (typeof features)[0]; index: number }) {
           className="absolute bottom-0 left-0 w-full z-30 flex flex-col justify-end p-8 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
           style={{ transform: "translateZ(50px)" }}
         >
-          <h3 className="mb-3 text-2xl font-bold text-white md:text-3xl drop-shadow-lg tracking-wide">
+          <h3 className="mb-3 text-2xl font-bold text-white drop-shadow-lg tracking-wide">
             {feature.title}
           </h3>
           <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 group-hover:grid-rows-[1fr]">
