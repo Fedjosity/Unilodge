@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import ComingSoon from "../ui/ComingSoon";
 
 export default function SoftCTASection() {
   const container = useRef(null);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -46,11 +48,18 @@ export default function SoftCTASection() {
           of Unilodge Realty and Property Developers Limited.
         </p>
 
-        <button className="group inline-flex items-center gap-4 rounded-full bg-charcoal-black px-12 py-6 text-lg font-medium text-white transition-all hover:bg-primary-red hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+        <button
+          onClick={() => setIsComingSoonOpen(true)}
+          className="group inline-flex items-center gap-4 rounded-full bg-charcoal-black px-12 py-6 text-lg font-medium text-white transition-all hover:bg-primary-red hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+        >
           Let&apos;s Continue
           <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
+      <ComingSoon
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </section>
   );
 }
