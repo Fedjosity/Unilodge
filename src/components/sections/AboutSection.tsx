@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import ComingSoon from "../ui/ComingSoon";
 
 export default function AboutSection() {
   const container = useRef(null);
   const imageRef = useRef(null);
   const contentRef = useRef(null);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -101,7 +103,10 @@ export default function AboutSection() {
             </p>
 
             <div className="about-content-item pt-4">
-              <button className="group flex items-center gap-3 rounded-full bg-primary-red px-10 py-4 text-white transition-all hover:bg-red-700 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+              <button
+                onClick={() => setIsComingSoonOpen(true)}
+                className="group flex items-center gap-3 rounded-full bg-primary-red px-10 py-4 text-white transition-all hover:bg-red-700 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+              >
                 <span className="font-medium tracking-wide">About Us</span>
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
@@ -109,6 +114,10 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+      <ComingSoon
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </section>
   );
 }

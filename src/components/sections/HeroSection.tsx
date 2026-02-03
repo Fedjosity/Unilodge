@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import ComingSoon from "../ui/ComingSoon";
 
 export default function HeroSection() {
   const container = useRef(null);
   const textRef = useRef(null);
   const bgRef = useRef(null);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -96,11 +98,18 @@ export default function HeroSection() {
           of living.
         </p>
 
-        <button className="hero-text group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-medium uppercase tracking-widest text-black transition-all hover:bg-primary-red hover:text-white cursor-pointer">
+        <button
+          onClick={() => setIsComingSoonOpen(true)}
+          className="hero-text group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-medium uppercase tracking-widest text-black transition-all hover:bg-primary-red hover:text-white cursor-pointer"
+        >
           Explore the Vision
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
+      <ComingSoon
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </section>
   );
 }

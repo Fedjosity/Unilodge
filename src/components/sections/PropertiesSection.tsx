@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ComingSoon from "../ui/ComingSoon";
 
 const locations = [
   {
@@ -34,6 +34,7 @@ const locations = [
 export default function PropertiesSection() {
   const sectionRef = useRef(null);
   const rowsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -125,14 +126,13 @@ export default function PropertiesSection() {
               <h3 className="text-xl md:text-2xl font-medium tracking-wide uppercase text-primary-red/80">
                 {location.name}
               </h3>
-              <Link
-                href={`/properties/${location.name.toLowerCase()}`}
-                className="group flex items-center gap-2 text-sm md:text-base text-muted-foreground hover:text-primary-red transition-colors"
-                rel="nofollow"
+              <button
+                onClick={() => setIsComingSoonOpen(true)}
+                className="group flex items-center gap-2 text-sm md:text-base text-muted-foreground hover:text-primary-red transition-colors cursor-pointer"
               >
                 <span>View More</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              </button>
             </div>
 
             {/* Scrolling Carousel Row */}
@@ -170,6 +170,10 @@ export default function PropertiesSection() {
           </div>
         ))}
       </div>
+      <ComingSoon
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </section>
   );
 }

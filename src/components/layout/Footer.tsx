@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import ComingSoon from "../ui/ComingSoon";
 
 export default function Footer() {
   const container = useRef(null);
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -69,36 +71,36 @@ export default function Footer() {
             <div className="pt-4">
               <p className="font-bold text-lg mb-4">Follow Us:</p>
               <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="bg-[#0066FF] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                <button
+                  onClick={() => setIsComingSoonOpen(true)}
+                  className="bg-[#0066FF] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Facebook
                     className="w-6 h-6 text-white"
                     fill="currentColor"
                   />
-                </a>
-                <a
-                  href="#"
-                  className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                </button>
+                <button
+                  onClick={() => setIsComingSoonOpen(true)}
+                  className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Instagram className="w-6 h-6 text-white" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                </button>
+                <button
+                  onClick={() => setIsComingSoonOpen(true)}
+                  className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Linkedin
                     className="w-6 h-6 text-white"
                     fill="currentColor"
                   />
-                </a>
-                <a
-                  href="#"
-                  className="bg-[#FF0000] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                </button>
+                <button
+                  onClick={() => setIsComingSoonOpen(true)}
+                  className="bg-[#FF0000] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Youtube className="w-6 h-6 text-white" fill="currentColor" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -107,28 +109,29 @@ export default function Footer() {
           <div className="flex flex-col items-start md:items-end space-y-2 footer-content">
             <Link
               href="/"
-              className="text-lg hover:underline underline-offset-4 decoration-2"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-lg hover:underline underline-offset-4 decoration-2 cursor-pointer"
             >
               Home
             </Link>
-            <Link
-              href="#about"
-              className="text-lg hover:underline underline-offset-4 decoration-2"
+            <button
+              onClick={() => setIsComingSoonOpen(true)}
+              className="text-lg hover:underline underline-offset-4 decoration-2 cursor-pointer"
             >
               About Us
-            </Link>
-            <Link
-              href="#properties"
-              className="text-lg hover:underline underline-offset-4 decoration-2"
+            </button>
+            <button
+              onClick={() => setIsComingSoonOpen(true)}
+              className="text-lg hover:underline underline-offset-4 decoration-2 cursor-pointer"
             >
               Properties
-            </Link>
-            <Link
-              href="#contact"
-              className="text-lg hover:underline underline-offset-4 decoration-2"
+            </button>
+            <button
+              onClick={() => setIsComingSoonOpen(true)}
+              className="text-lg hover:underline underline-offset-4 decoration-2 cursor-pointer"
             >
               Contact Us
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -138,6 +141,10 @@ export default function Footer() {
           © {new Date().getFullYear()} Unilodge Realty. All rights reserved.
         </div>
       </div>
+      <ComingSoon
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </footer>
   );
 }
