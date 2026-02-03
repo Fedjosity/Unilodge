@@ -13,7 +13,7 @@ export default function MapSection() {
       gsap.from(".map-content", {
         y: 50,
         opacity: 0,
-        duration: 1,
+        duration: 0.2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: container.current,
