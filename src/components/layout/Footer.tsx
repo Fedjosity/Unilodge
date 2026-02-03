@@ -71,36 +71,44 @@ export default function Footer() {
             <div className="pt-4">
               <p className="font-bold text-lg mb-4">Follow Us:</p>
               <div className="flex gap-4">
-                <button
-                  onClick={() => setIsComingSoonOpen(true)}
+                <a
+                  href="https://www.facebook.com/unilodgerealty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#0066FF] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Facebook
                     className="w-6 h-6 text-white"
                     fill="currentColor"
                   />
-                </button>
-                <button
-                  onClick={() => setIsComingSoonOpen(true)}
+                </a>
+                <a
+                  href="https://www.instagram.com/unilodge_realty/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Instagram className="w-6 h-6 text-white" />
-                </button>
-                <button
-                  onClick={() => setIsComingSoonOpen(true)}
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/unilodgerealty"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Linkedin
                     className="w-6 h-6 text-white"
                     fill="currentColor"
                   />
-                </button>
-                <button
-                  onClick={() => setIsComingSoonOpen(true)}
+                </a>
+                <a
+                  href="https://www.youtube.com/@Unilodgepodcast"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#FF0000] p-2 rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer"
                 >
                   <Youtube className="w-6 h-6 text-white" fill="currentColor" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
