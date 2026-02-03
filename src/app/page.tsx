@@ -4,6 +4,7 @@ import BrandStorySection from "@/components/sections/BrandStorySection";
 import FeatureCardsSection from "@/components/sections/FeatureCardsSection";
 import ValuePropositionSection from "@/components/sections/ValuePropositionSection";
 import PropertiesSection from "@/components/sections/PropertiesSection";
+import BlogSection from "@/components/sections/BlogSection";
 import SoftCTASection from "@/components/sections/SoftCTASection";
 import MapSection from "@/components/sections/MapSection";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <FeatureCardsSection />
       <ValuePropositionSection />
       <PropertiesSection />
+      <BlogSection />
       <SoftCTASection />
       <MapSection />
     </main>
