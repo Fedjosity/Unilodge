@@ -30,6 +30,11 @@ export default function HeroSection() {
           duration: 1,
           stagger: 0.2,
           ease: "power3.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
         },
         "-=1.5",
       );
@@ -43,6 +48,7 @@ export default function HeroSection() {
           start: "top top",
           end: "bottom top",
           scrub: true,
+          toggleActions: "play none none reverse",
         },
       });
     }, container);

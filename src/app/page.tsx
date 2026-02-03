@@ -3,6 +3,7 @@ import BrandStorySection from "@/components/sections/BrandStorySection";
 import FeatureCardsSection from "@/components/sections/FeatureCardsSection";
 import ValuePropositionSection from "@/components/sections/ValuePropositionSection";
 import SoftCTASection from "@/components/sections/SoftCTASection";
+import MapSection from "@/components/sections/MapSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <FeatureCardsSection />
       <ValuePropositionSection />
       <SoftCTASection />
+      <MapSection />
     </main>
   );
 }
