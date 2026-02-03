@@ -111,10 +111,6 @@ export default function Navbar() {
               width={40}
               height={40}
             />
-            <span className="text-xl font-bold tracking-tight text-white md:text-2xl">
-              Unilodge{" "}
-              <span className="text-gray-400">Realty & Properties</span>
-            </span>
           </div>
 
           {/* Desktop Navigation */}
