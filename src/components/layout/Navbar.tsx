@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import ComingSoon from "../ui/ComingSoon";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
-  
+
   const navRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
@@ -36,24 +37,24 @@ export default function Navbar() {
   // Initial animation
   useEffect(() => {
     const tl = gsap.timeline();
-    
+
     tl.fromTo(
       navRef.current,
       { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
     )
-    .fromTo(
-      logoRef.current,
-      { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-      "-=0.5"
-    )
-    .fromTo(
-      ".nav-link",
-      { y: -20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-      "-=0.6"
-    );
+      .fromTo(
+        logoRef.current,
+        { x: -20, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+        "-=0.5",
+      )
+      .fromTo(
+        ".nav-link",
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+        "-=0.6",
+      );
   }, []);
 
   // Mobile menu animation
@@ -68,7 +69,7 @@ export default function Navbar() {
       gsap.fromTo(
         ".mobile-nav-link",
         { x: 50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, delay: 0.2 }
+        { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, delay: 0.2 },
       );
     } else {
       document.body.style.overflow = "";
@@ -104,24 +105,15 @@ export default function Navbar() {
         <div className="container mx-auto flex items-center justify-between px-4 md:px-8">
           {/* Logo */}
           <div ref={logoRef} className="flex items-center gap-2 z-50">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-red">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-6 w-6 text-white"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
-                />
-              </svg>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Unilodge Realty"
+              width={40}
+              height={40}
+            />
             <span className="text-xl font-bold tracking-tight text-white md:text-2xl">
-              Unilodge <span className="text-gray-400">Realty & Properties</span>
+              Unilodge{" "}
+              <span className="text-gray-400">Realty & Properties</span>
             </span>
           </div>
 
@@ -138,14 +130,25 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary-red transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
-            
-            <button 
+
+            <button
               className="nav-link text-white hover:text-primary-red transition-colors"
               onClick={() => setIsComingSoonOpen(true)}
               aria-label="Search"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
               </svg>
             </button>
           </nav>
