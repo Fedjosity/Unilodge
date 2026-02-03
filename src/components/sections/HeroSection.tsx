@@ -58,7 +58,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div ref={bgRef} className="absolute inset-0 z-0">
         <Image
-          src="https://lh3.googleusercontent.com/sitesv/APaQ0STwdUgPdxG95KgEbXALfy9f5B5XsdO505Cfjrb7hbAqBujg_KuExK_QNfRcLxVr3wtYwbyiqFeeEH3xjM_pMnakKH1Eg21fsWWKD6kQSfVCxJOQrXeyWS4pUa1nS5tZcO4-Y8lPc9GSoEtJzPvFFAFo9kOuL0XvfAuYrOhmjb1-cszshmjQgLp6=w16383"
+          src="/hero.jpg"
           alt="Luxury Real Estate"
           fill
           className="object-cover"
@@ -71,13 +71,13 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
         <h1
           ref={textRef}
-          className="hero-text mb-6 max-w-4xl text-5xl font-bold leading-tight tracking-tight md:text-7xl lg:text-8xl"
+          className="hero-text mb-6  text-5xl font-bold leading-tight tracking-tight md:text-7xl lg:text-8xl"
         >
           Redefining Real Estate <br />
           <span className="text-primary-red">for a New Generation</span>
         </h1>
 
-        <p className="hero-text mb-10 max-w-xl text-lg font-light tracking-wide text-gray-200 md:text-xl">
+        <p className="hero-text mb-10  text-lg font-light tracking-wide text-gray-200 md:text-xl">
           Where community, technology, and trust converge to create the future
           of living.
         </p>

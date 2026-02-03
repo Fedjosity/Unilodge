@@ -6,28 +6,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const features = [
   {
-    title: "Property Development",
-    desc: "Crafting iconic structures that define skylines.",
+    title: "Sustainability",
+    desc: "Building eco-friendly communities that prioritize the environment.",
     image:
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20construction%20site%20luxury%20building%20glass%20facade%20architectural%20rendering&image_size=portrait_4_3",
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Real Estate Investment",
-    desc: "Data-driven opportunities for high-yield returns.",
+    title: "Excellence",
+    desc: "Delivering exceptional quality in every property development project.",
     image:
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=financial%20district%20abstract%20digital%20data%20overlay%20on%20city%20background%20blue%20tones&image_size=portrait_4_3",
+      "https://images.unsplash.com/photo-1644042191329-759b854f880a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Sustainable Communities",
-    desc: "Green living spaces designed for the future.",
+    title: "Integrity",
+    desc: "Operating with transparency and trust in all real estate transactions.",
     image:
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=vertical%20garden%20building%20sustainable%20architecture%20eco%20friendly%20luxury%20apartments&image_size=portrait_4_3",
+      "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Tech-Driven Management",
-    desc: "Seamless property experience through innovation.",
+    title: "Collaboration",
+    desc: "Working with partners and communities to create shared value.",
+    image: "/core-values/collaboration.jpg",
+  },
+  {
+    title: "Innovation",
+    desc: "Leveraging technology to redefine the real estate experience.",
     image:
-      "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=smart%20home%20interface%20hologram%20control%20panel%20luxury%20interior%20background&image_size=portrait_4_3",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -58,12 +63,12 @@ export default function FeatureCardsSection() {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="text-3xl font-bold uppercase tracking-widest text-charcoal-black md:text-4xl">
-            Our Expertise
+            Our Core Values
           </h2>
           <div className="mx-auto mt-4 h-1 w-20 bg-primary-red" />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {features.map((feature, idx) => (
             <div
               key={idx}
