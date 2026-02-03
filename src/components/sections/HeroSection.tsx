@@ -77,10 +77,18 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
         <h1
           ref={textRef}
-          className="hero-text mb-6  text-5xl font-bold leading-tight tracking-tight md:text-7xl lg:text-8xl"
+          className="
+    hero-text mb-6
+    text-4xl
+    font-bold leading-tight tracking-tight
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    xl:text-8xl
+  "
         >
-          Redefining Real Estate <br />
-          <span className="text-primary-red">for a New Generation</span>
+          Building Communities, <br />
+          <span className="text-primary-red">One Property at a Time</span>
         </h1>
 
         <p className="hero-text mb-10  text-lg font-light tracking-wide text-gray-200 md:text-xl">

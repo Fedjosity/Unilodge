@@ -47,28 +47,36 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section ref={container} className="relative w-full bg-white py-24 md:py-32 overflow-hidden" id="about">
+    <section
+      ref={container}
+      className="relative w-full bg-white py-24 md:py-32 overflow-hidden"
+      id="about"
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          
           {/* Left Column - Founder Image */}
           <div className="w-full lg:w-1/2 relative">
-            <div ref={imageRef} className="relative aspect-4/5 w-full max-w-md mx-auto lg:mr-auto rounded-2xl overflow-hidden shadow-2xl">
+            <div
+              ref={imageRef}
+              className="relative aspect-4/5 w-full max-w-md mx-auto lg:mr-auto rounded-2xl overflow-hidden shadow-2xl"
+            >
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                src="/blog/5.jpg"
                 alt="Founder of Unilodge Realty"
                 fill
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60" />
-              
+
               {/* Optional: Founder Name/Title overlay */}
-              <div className="absolute bottom-6 left-6 text-white">
-                <p className="text-sm font-bold uppercase tracking-widest text-primary-red mb-1">Founder & CEO</p>
+              {/* <div className="absolute bottom-6 left-6 text-white">
+                <p className="text-sm font-bold uppercase tracking-widest text-primary-red mb-1">
+                  Founder & CEO
+                </p>
                 <h3 className="text-2xl font-bold">Visionary Leader</h3>
-              </div>
+              </div> */}
             </div>
-            
+
             {/* Decorative background element */}
             <div className="absolute -z-10 top-10 -left-10 w-full h-full border-2 border-gray-100 rounded-2xl hidden lg:block" />
           </div>
@@ -79,13 +87,17 @@ export default function AboutSection() {
               Real Estate, <br />
               <span className="text-primary-red">Technology & Energy</span>
             </h2>
-            
+
             <p className="about-content-item text-lg md:text-xl text-gray-600 font-light leading-relaxed">
-              Unilodge is an innovative consortium dedicated to solving Africa&apos;s most pressing challenges in housing, infrastructure, and energy.
+              Unilodge is an innovative consortium dedicated to solving
+              Africa&apos;s most pressing challenges in housing, infrastructure,
+              and energy.
             </p>
-            
+
             <p className="about-content-item text-lg md:text-xl text-gray-600 font-light leading-relaxed">
-              We don&apos;t just build properties. We create smart, sustainable solutions that transform lives, empower communities, and shape the future.
+              We don&apos;t just build properties. We create smart, sustainable
+              solutions that transform lives, empower communities, and shape the
+              future.
             </p>
 
             <div className="about-content-item pt-4">
@@ -95,7 +107,6 @@ export default function AboutSection() {
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </section>
