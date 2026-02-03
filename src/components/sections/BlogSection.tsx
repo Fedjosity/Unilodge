@@ -165,7 +165,7 @@ export default function BlogSection() {
               >
                 <div className="group relative flex flex-col h-full bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-primary-red/30 transition-colors duration-300">
                   {/* Image Container */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <div className="relative w-full aspect-4/3 overflow-hidden">
                     <Image
                       src={blog.image}
                       alt={blog.title}
