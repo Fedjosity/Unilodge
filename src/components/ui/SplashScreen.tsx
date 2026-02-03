@@ -105,7 +105,7 @@ export default function SplashScreen() {
         >
           <Image
             src="/logo.png"
-            alt="Unilodge Logo"
+            alt="Unilodge Realty and Property Developers Limited Logo"
             fill
             className="object-contain"
             priority

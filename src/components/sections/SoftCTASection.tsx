@@ -43,7 +43,7 @@ export default function SoftCTASection() {
         <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-gray-600 leading-relaxed">
           We&apos;ve only scratched the surface of what&apos;s possible. If this
           direction resonates with your vision, we are ready to build the future
-          of Unilodge Realty.
+          of Unilodge Realty and Property Developers Limited.
         </p>
 
         <button className="group inline-flex items-center gap-4 rounded-full bg-charcoal-black px-12 py-6 text-lg font-medium text-white transition-all hover:bg-primary-red hover:shadow-2xl hover:-translate-y-1 cursor-pointer">

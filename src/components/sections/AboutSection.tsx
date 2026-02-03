@@ -64,7 +64,7 @@ export default function AboutSection() {
             >
               <Image
                 src="/blog/5.jpg"
-                alt="Founder of Unilodge Realty"
+                alt="Founder of Unilodge Realty and Property Developers Limited"
                 fill
                 className="object-cover"
               />
@@ -91,9 +91,9 @@ export default function AboutSection() {
             </h2>
 
             <p className="about-content-item text-lg md:text-xl text-gray-600 font-light leading-relaxed">
-              Unilodge is an innovative consortium dedicated to solving
-              Africa&apos;s most pressing challenges in housing, infrastructure,
-              and energy.
+              Unilodge Realty and Property Developers Limited is an innovative
+              consortium dedicated to solving Africa&apos;s most pressing
+              challenges in housing, infrastructure, and energy.
             </p>
 
             <p className="about-content-item text-lg md:text-xl text-gray-600 font-light leading-relaxed">

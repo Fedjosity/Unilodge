@@ -54,3 +54,13 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
+::selection {
+  background-color: #dc2626; /* red */
+  color: #ffffff; /* text color when selected */
+}
+
+::-moz-selection {
+  background-color: #dc2626;
+  color: #ffffff;
+}

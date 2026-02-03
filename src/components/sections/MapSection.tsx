@@ -41,7 +41,7 @@ export default function MapSection() {
         />
         <div className="absolute top-4 left-4 bg-white p-4 rounded-md shadow-lg z-10 max-w-xs hidden md:block">
           <h3 className="font-bold text-charcoal-black mb-1">
-            Unilodge Realty
+            Unilodge Realty and Property Developers Limited
           </h3>
           <p className="text-sm text-gray-600">Uniben, Benin City</p>
           <a

@@ -107,7 +107,7 @@ export default function Navbar() {
           <div ref={logoRef} className="flex items-center gap-2 z-50">
             <Image
               src="/logo.png"
-              alt="Unilodge Realty"
+              alt="Unilodge Realty and Property Developers Limited"
               width={40}
               height={40}
             />

@@ -46,7 +46,7 @@ export default function BrandStorySection() {
           <div className="space-y-8 text-lg font-light leading-relaxed text-gray-600 md:text-xl">
             <p className="story-text">
               In a world where technology moves fast, real estate has stayed
-              still. We are changing that. Unilodge Realty isn&apos;t just about
+              still. We are changing that. Unilodge Realty and Property Developers Limited isn&apos;t just about
               property; it&apos;s about creating connected, sustainable
               communities that adapt to how you live.
             </p>

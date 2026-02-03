@@ -138,7 +138,8 @@ export default function Footer() {
         {/* Bottom Line */}
         <div className="w-full h-px bg-white/20 mt-16 footer-content" />
         <div className="mt-4 text-sm text-white/60 text-center md:text-left footer-content">
-          © {new Date().getFullYear()} Unilodge Realty. All rights reserved.
+          © {new Date().getFullYear()} Unilodge Realty and Property Developers
+          Limited. All rights reserved.
         </div>
       </div>
       <ComingSoon

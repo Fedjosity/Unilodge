@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unilodge Realty | Redefining Real Estate",
+  title: "Unilodge Realty and Property Developers Limited | Redefining Real Estate",
   description: "A premium, next-generation real estate experience.",
 };
 
