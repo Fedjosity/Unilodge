@@ -30,7 +30,7 @@ export default function SoftCTASection() {
       ref={container}
       className="bg-white py-32 md:py-40 text-center relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent" />
 
       <div className="container mx-auto px-4 cta-content relative z-10">
         <p className="mb-6 text-sm font-bold uppercase tracking-widest text-primary-red">
@@ -40,9 +40,9 @@ export default function SoftCTASection() {
           This is just the beginning.
         </h2>
         <p className="mx-auto mb-12 max-w-2xl text-xl font-light text-gray-600 leading-relaxed">
-          We&apos;ve only scratched the surface of what&apos;s possible. If this direction
-          resonates with your vision, we are ready to build the future of
-          Unilodge Realty.
+          We&apos;ve only scratched the surface of what&apos;s possible. If this
+          direction resonates with your vision, we are ready to build the future
+          of Unilodge Realty.
         </p>
 
         <button className="group inline-flex items-center gap-4 rounded-full bg-charcoal-black px-12 py-6 text-lg font-medium text-white transition-all hover:bg-primary-red hover:shadow-2xl hover:-translate-y-1 cursor-pointer">

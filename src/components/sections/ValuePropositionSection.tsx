@@ -66,7 +66,7 @@ export default function ValuePropositionSection() {
           <div className="space-y-12">
             {propositions.map((prop, idx) => (
               <div key={idx} className="prop-item flex gap-6 items-start group">
-                <div className="flex-shrink-0 rounded-full bg-white/5 p-4 group-hover:bg-primary-red transition-colors duration-300">
+                <div className="shrink-0 rounded-full bg-white/5 p-4 group-hover:bg-primary-red transition-colors duration-300">
                   <prop.icon className="h-6 w-6 text-primary-red group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
