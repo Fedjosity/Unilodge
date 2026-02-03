@@ -58,7 +58,7 @@ export default function ValuePropositionSection() {
             </h2>
             <p className="text-xl text-gray-400 font-light leading-relaxed mb-12">
               The real estate landscape is changing. A modern digital presence
-              is no longer an option—it's the primary way high-end clients
+              is no longer an option—it&apos;s the primary way high-end clients
               perceive value.
             </p>
           </div>
