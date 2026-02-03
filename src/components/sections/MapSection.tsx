@@ -18,7 +18,8 @@ export default function MapSection() {
         scrollTrigger: {
           trigger: container.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          end: "center center",
+          scrub: 1,
         },
       });
     }, container);

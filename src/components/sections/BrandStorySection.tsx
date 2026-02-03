@@ -18,7 +18,8 @@ export default function BrandStorySection() {
         scrollTrigger: {
           trigger: container.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          end: "bottom 60%",
+          scrub: 1,
         },
       });
     }, container);

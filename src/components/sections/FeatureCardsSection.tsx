@@ -51,7 +51,8 @@ export default function FeatureCardsSection() {
         scrollTrigger: {
           trigger: container.current,
           start: "top 75%",
-          toggleActions: "play none none reverse",
+          end: "bottom center",
+          scrub: 1,
         },
       });
     }, container);

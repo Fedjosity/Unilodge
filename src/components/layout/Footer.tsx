@@ -21,7 +21,8 @@ export default function Footer() {
         scrollTrigger: {
           trigger: container.current,
           start: "top 90%",
-          toggleActions: "play none none reverse",
+          end: "bottom bottom",
+          scrub: 1,
         },
       });
     }, container);
@@ -29,27 +30,37 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={container} className="bg-[#8B0000] text-white py-16 md:py-20 relative overflow-hidden">
+    <footer
+      ref={container}
+      className="bg-[#8B0000] text-white py-16 md:py-20 relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-8">
-          
           {/* Left Column */}
           <div className="space-y-6 max-w-lg footer-content">
             <h3 className="text-lg md:text-xl font-medium leading-relaxed">
-              We are available from 9 am–5 pm, <span className="font-bold">Monday</span> through <span className="font-bold">Friday</span>
+              We are available from 9 am–5 pm,{" "}
+              <span className="font-bold">Monday</span> through{" "}
+              <span className="font-bold">Friday</span>
             </h3>
-            
+
             <div className="space-y-2">
               <p className="text-lg">
                 <span className="font-bold">Phone:</span>{" "}
-                <a href="tel:+2348159457077" className="hover:underline hover:text-gray-200 transition-colors">
+                <a
+                  href="tel:+2348159457077"
+                  className="hover:underline hover:text-gray-200 transition-colors"
+                >
                   +234 815 945 7077
                 </a>
               </p>
-              
+
               <p className="text-lg">
                 <span className="font-bold">Email:</span>{" "}
-                <a href="mailto:unilodgegroup@gmail.com" className="hover:underline hover:text-gray-200 transition-colors">
+                <a
+                  href="mailto:unilodgegroup@gmail.com"
+                  className="hover:underline hover:text-gray-200 transition-colors"
+                >
                   unilodgegroup@gmail.com
                 </a>
               </p>
@@ -58,16 +69,34 @@ export default function Footer() {
             <div className="pt-4">
               <p className="font-bold text-lg mb-4">Follow Us:</p>
               <div className="flex gap-4">
-                <a href="#" className="bg-[#0066FF] p-2 rounded-full hover:scale-110 transition-transform duration-300">
-                  <Facebook className="w-6 h-6 text-white" fill="currentColor" />
+                <a
+                  href="#"
+                  className="bg-[#0066FF] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                >
+                  <Facebook
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                  />
                 </a>
-                <a href="#" className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-2 rounded-full hover:scale-110 transition-transform duration-300">
+                <a
+                  href="#"
+                  className="bg-linear-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                >
                   <Instagram className="w-6 h-6 text-white" />
                 </a>
-                <a href="#" className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition-transform duration-300">
-                  <Linkedin className="w-6 h-6 text-white" fill="currentColor" />
+                <a
+                  href="#"
+                  className="bg-[#0077b5] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                >
+                  <Linkedin
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                  />
                 </a>
-                <a href="#" className="bg-[#FF0000] p-2 rounded-full hover:scale-110 transition-transform duration-300">
+                <a
+                  href="#"
+                  className="bg-[#FF0000] p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                >
                   <Youtube className="w-6 h-6 text-white" fill="currentColor" />
                 </a>
               </div>
@@ -76,21 +105,33 @@ export default function Footer() {
 
           {/* Right Column - Navigation */}
           <div className="flex flex-col items-start md:items-end space-y-2 footer-content">
-            <Link href="/" className="text-lg hover:underline underline-offset-4 decoration-2">
+            <Link
+              href="/"
+              className="text-lg hover:underline underline-offset-4 decoration-2"
+            >
               Home
             </Link>
-            <Link href="#about" className="text-lg hover:underline underline-offset-4 decoration-2">
+            <Link
+              href="#about"
+              className="text-lg hover:underline underline-offset-4 decoration-2"
+            >
               About Us
             </Link>
-            <Link href="#properties" className="text-lg hover:underline underline-offset-4 decoration-2">
+            <Link
+              href="#properties"
+              className="text-lg hover:underline underline-offset-4 decoration-2"
+            >
               Properties
             </Link>
-            <Link href="#contact" className="text-lg hover:underline underline-offset-4 decoration-2">
+            <Link
+              href="#contact"
+              className="text-lg hover:underline underline-offset-4 decoration-2"
+            >
               Contact Us
             </Link>
           </div>
         </div>
-        
+
         {/* Bottom Line */}
         <div className="w-full h-px bg-white/20 mt-16 footer-content" />
         <div className="mt-4 text-sm text-white/60 text-center md:text-left footer-content">

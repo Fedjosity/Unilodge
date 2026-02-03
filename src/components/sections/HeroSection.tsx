@@ -33,7 +33,8 @@ export default function HeroSection() {
           scrollTrigger: {
             trigger: container.current,
             start: "top center",
-            toggleActions: "play none none reverse",
+            end: "bottom center",
+            scrub: 1,
           },
         },
         "-=1.5",
@@ -47,8 +48,7 @@ export default function HeroSection() {
           trigger: container.current,
           start: "top top",
           end: "bottom top",
-          scrub: true,
-          toggleActions: "play none none reverse",
+          scrub: 1,
         },
       });
     }, container);

@@ -37,7 +37,8 @@ export default function ValuePropositionSection() {
         scrollTrigger: {
           trigger: container.current,
           start: "top 80%",
-          toggleActions: "play none none none",
+          end: "bottom center",
+          scrub: 1,
         },
       });
     }, container);
