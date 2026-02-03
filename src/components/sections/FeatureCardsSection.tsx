@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -36,17 +36,152 @@ const features = [
   },
 ];
 
+function Card3D({
+  feature,
+  index,
+}: {
+  feature: (typeof features)[0];
+  index: number;
+}) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || !contentRef.current || !glowRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Calculate rotation (max 15 degrees)
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    // Calculate glow position
+    const glowX = (x / rect.width) * 100;
+    const glowY = (y / rect.height) * 100;
+
+    gsap.to(contentRef.current, {
+      rotateX: rotateX,
+      rotateY: rotateY,
+      duration: 0.5,
+      ease: "power2.out",
+      transformPerspective: 1000,
+      transformStyle: "preserve-3d",
+    });
+
+    gsap.to(glowRef.current, {
+      background: `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(255, 255, 255, 0.3), transparent 50%)`,
+      duration: 0.2,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    if (!contentRef.current || !glowRef.current) return;
+
+    gsap.to(contentRef.current, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+
+    gsap.to(glowRef.current, {
+      background: `radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0), transparent 50%)`,
+      duration: 0.5,
+    });
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      className="feature-card-wrapper relative h-[450px] w-full"
+      style={{ perspective: "1000px" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        ref={contentRef}
+        className="feature-card relative h-full w-full rounded-xl bg-gray-900 shadow-xl overflow-hidden"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Shadow Layer - moves opposite to tilt */}
+        <div
+          className="absolute inset-0 z-0 bg-black/50 blur-xl transition-transform duration-300"
+          style={{ transform: "translateZ(-20px)" }}
+        />
+
+        {/* Image Layer - Deepest */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{ transform: "translateZ(0px) scale(1.1)" }}
+        >
+          <Image
+            src={feature.image}
+            alt={feature.title}
+            fill
+            className="object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-60"
+          />
+        </div>
+
+        {/* Gradient Overlay Layer - Middle */}
+        <div
+          className="absolute inset-0 z-10 bg-linear-to-t from-black/95 via-black/50 to-transparent"
+          style={{ transform: "translateZ(20px)" }}
+        />
+
+        {/* Hover Glow Effect */}
+        <div
+          ref={glowRef}
+          className="absolute inset-0 z-20 pointer-events-none mix-blend-overlay"
+          style={{ transform: "translateZ(30px)" }}
+        />
+
+        {/* Content Layer - Highest (Pop out) */}
+        <div
+          className="absolute bottom-0 left-0 w-full z-30 flex flex-col justify-end p-8 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
+          style={{ transform: "translateZ(50px)" }}
+        >
+          <h3 className="mb-3 text-2xl font-bold text-white md:text-3xl drop-shadow-lg tracking-wide">
+            {feature.title}
+          </h3>
+          <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 group-hover:grid-rows-[1fr]">
+            <div className="overflow-hidden">
+              <p className="text-gray-200 opacity-0 transition-opacity duration-500 group-hover:opacity-100 leading-relaxed font-light pt-2 pb-2">
+                {feature.desc}
+              </p>
+            </div>
+          </div>
+
+          {/* Decorative element */}
+          <div className="w-12 h-1 bg-primary-red mt-2 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
+        </div>
+
+        {/* Border Glow on Hover */}
+        <div
+          className="absolute inset-0 border border-white/10 rounded-xl z-40 transition-colors duration-300 group-hover:border-white/30"
+          style={{ transform: "translateZ(60px)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function FeatureCardsSection() {
   const container = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
-      gsap.from(".feature-card", {
-        y: 100,
+      gsap.from(".feature-card-wrapper", {
+        x: 100,
         opacity: 0,
-        duration: 1,
-        stagger: 0.15,
+        duration: 1.5,
+        stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: container.current,
@@ -60,37 +195,25 @@ export default function FeatureCardsSection() {
   }, []);
 
   return (
-    <section ref={container} className="bg-soft-off-white py-24 md:py-32">
+    <section
+      ref={container}
+      className="bg-soft-off-white py-24 md:py-32 overflow-hidden"
+    >
       <div className="container mx-auto px-4">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold uppercase tracking-widest text-charcoal-black md:text-4xl">
+        <div className="mb-20 text-center">
+          <h2 className="text-4xl font-bold uppercase tracking-widest text-charcoal-black md:text-5xl mb-4">
             Our Core Values
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 bg-primary-red" />
+          <div className="mx-auto h-1.5 w-24 bg-primary-red rounded-full" />
+          <p className="mt-6 text-gray-500 max-w-2xl mx-auto font-light text-lg">
+            Principles that define our legacy and shape your future.
+          </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 perspective-container">
           {features.map((feature, idx) => (
-            <div
-              key={idx}
-              className="feature-card group relative h-[400px] overflow-hidden rounded-xl bg-gray-900 shadow-xl"
-            >
-              <Image
-                src={feature.image}
-                alt={feature.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-50"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-
-              <div className="absolute bottom-0 left-0 p-6 w-full">
-                <h3 className="mb-2 text-xl font-bold text-white md:text-2xl">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-gray-300 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                  {feature.desc}
-                </p>
-              </div>
+            <div key={idx} className="group h-full">
+              <Card3D feature={feature} index={idx} />
             </div>
           ))}
         </div>
