@@ -117,7 +117,7 @@ export default function SplashScreen() {
 
         {/* Tagline with Split Text */}
         <div ref={textRef} className="overflow-hidden px-4 text-center">
-          <h2 className="text-lg md:text-2xl font-light tracking-[0.3em] text-white uppercase">
+          <h2 className="text-sm sm:text-base md:text-2xl font-light tracking-[0.3em] text-white uppercase">
             {tagline.split("").map((char, index) => (
               <span key={index} className="splash-char inline-block">
                 {char === " " ? "\u00A0" : char}
